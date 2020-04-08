@@ -1,23 +1,20 @@
-
-
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegpageComponent } from '../regpage/regpage.component';
-
+import { LoginComponent } from '../login/login.component';
 
 describe('LoginComponent', () => {
-  let component: RegpageComponent;
-  let fixture: ComponentFixture<RegpageComponent>;
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegpageComponent ]
+      declarations: [ LoginComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegpageComponent);
+    fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -26,3 +23,4 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

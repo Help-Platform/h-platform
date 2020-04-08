@@ -10,7 +10,11 @@ import { ContentComponent } from './content/content.component';
 import { MenubarComponent } from './menubar/menubar.component';
 import { RightcontentComponent } from './rightcontent/rightcontent.component';
 import { LeftcontentComponent } from './leftcontent/leftcontent.component';
-import { LogindailogComponent } from './logindailog/logindailog.component';
+import { LoginComponent } from './login/login.component';
+import { AboutComponent } from './about/about.component';
+import { PostsComponent } from './posts/posts.component';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { LogindailogComponent } from './logindailog/logindailog.component';
     MenubarComponent,
     RightcontentComponent,
     LeftcontentComponent,
-    LogindailogComponent
+    LoginComponent,
+    AboutComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,

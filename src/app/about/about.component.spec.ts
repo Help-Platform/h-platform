@@ -1,23 +1,20 @@
-
-
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegpageComponent } from '../regpage/regpage.component';
+import { AboutComponent } from './about.component';
 
-
-describe('LoginComponent', () => {
-  let component: RegpageComponent;
-  let fixture: ComponentFixture<RegpageComponent>;
+describe('AboutComponent', () => {
+  let component: AboutComponent;
+  let fixture: ComponentFixture<AboutComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegpageComponent ]
+      declarations: [ AboutComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegpageComponent);
+    fixture = TestBed.createComponent(AboutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
