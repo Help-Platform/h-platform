@@ -1,7 +1,7 @@
-<<div class=" modal-dialog shadow-sm ">
+<div class=" modal-dialog shadow-sm dailog-position">
 	<div class="modal-content ">
 		<div class="modal-header" style="background-color: black;-webkit-text-fill-color: aliceblue;">Post</div>
-		<form role="form" class="well" ng-hide="ifSearchUser">
+		<form role="form" class="well" >
 			<div class="form-group">
 				<label for="name"> Name: </label>
 				<input type="text" id="name" class="form-control w-75" placeholder="Enter Name "
@@ -14,7 +14,7 @@
 			</div>
 
 			<div class="dropdown mb-3">
-				<button class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown">Particulars
+				<button class="btn btn-secondary btn-lg dropdown-toggle mr-4" type="button" data-toggle="dropdown">Particulars
 				</button>
 				<ul class="dropdown-menu">
 					<li><a href="#">HTML</a></li>
@@ -22,7 +22,7 @@
 					<li><a href="#">JavaScript</a></li>
 				</ul>
 
-				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Qty
+				<button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Qty
 				</button>
 				<ul class="dropdown-menu">
 					<li><a href="#">1</a></li>
@@ -57,8 +57,9 @@
 					</textarea>
 			</div>
 
-			<input type="hidden" ng-model="newcontact.id">
-			<input type="button" class="btn btn-primary" ng-click="savePost()" value="Post">
+			<div class="d-flex justify-content-center">
+			<button class="btn btn-primary submit " type="submit"> Submit Post  </button>
+			</div>
 		</form>
 	</div>
 	</div>

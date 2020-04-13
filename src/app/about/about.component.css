@@ -1,0 +1,6 @@
+.dailog-position 
+{
+	position: relative;
+	top:25%;
+	transform: translateY(-175%);
+}
