@@ -4,30 +4,31 @@
 		<div class="modal-header" style="background-color: black;-webkit-text-fill-color: aliceblue;">Registration</div>
 
 
-		<form role="form" class="well" (submit)="addUser()" >
+		<form [formGroup]="regForm" (ngSubmit)="addUser()">
+		
 			<div class="form-group">
 				<label for="name"> Name: </label>
-				<input type="text" id="name" class="form-control" placeholder="Enter Name " ng-model="userDetails.name">
+				<input type="text" id="name" class="form-control" formControlName="name" placeholder="Enter Name " ng-model="users.name">
 			</div>
 			<div class="form-group">
 				<label for="password"> Password: </label><p style="font-size: x-small;">(To be used on your next login)</p>
-				<input type="password" id="password" class="form-control" placeholder="Enter Password "
-					ng-model="userDetails.password">
+				<input type="password" id="password" class="form-control" formControlName="password" placeholder="Enter Password "
+					ng-model="users.password">
 			</div>
 			<div class="form-group">
 				<label for="email"> Email: </label>
-				<input type="email" id="email" class="form-control" placeholder="Enter Email "
-					ng-model="userDetails.email">
+				<input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter Email "
+					ng-model="users.email">
 			</div>
 			
 			<div class="form-group">
 				<label for="phone"> Phone: </label>
-				<input type="text" id="phone" class="form-control mb-2" placeholder="Enter Phone "
-					ng-model="userDetails.contact">
+				<input type="text" id="phone" class="form-control mb-2" formControlName="contact" placeholder="Enter Phone "
+					ng-model="users.contact">
 
 			</div><div class="custom-control custom-radio custom-control-inline">
 				<input type="radio" class="custom-control-input " id="indi" name="individual" checked>
-				<label class="custom-control-label mr-5 " for="userDetails">Individual</label>
+				<label class="custom-control-label mr-5 " for="users">Individual</label>
 			</div>
 
 			<!-- Default inline 2-->
@@ -40,7 +41,7 @@
 			<div class="form-group">
 				<label for="input"> Address: </label>
 				<textarea type="text" id="address" class="form-control inputxlg w-75" rows="5"
-					placeholder="Enter Your Address " ng-model="userDetails.address">
+					placeholder="Enter Your Address " ng-model="users.address">
 					</textarea>
 			</div>
 

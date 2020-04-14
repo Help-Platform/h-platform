@@ -1,8 +1,11 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Users } from './../shared/users';
+import { UserServiceService } from '../shared/user-service.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
 
-import { RestApiService } from '../shared/rest-api.service';
 
 @Component({
   selector: 'app-regpage',
@@ -11,27 +14,39 @@ import { RestApiService } from '../shared/rest-api.service';
 })
 export class RegpageComponent implements OnInit {
 
-  @Input() userDetails = { name: ' ', age: '', email: '', contact: '', password: '', address: '' };
+  regForm: FormGroup;
+  error: string;
 
-  constructor(
-    public restApi: RestApiService,
-    public router: Router
+  constructor(private formBuilder: FormBuilder,
+              public userService: UserServiceService,
+              public router: Router
   ) { }
-  ngOnInit() { console.log('inside component constructor'); }
+  ngOnInit() {
+
+    this.regForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required]],
+      contact: ['', Validators.required, Validators.minLength(10)],
+      password: ['', [Validators.required]]
+
+    });
+  }
+  // convenience getter for easy access to form fields
+  get f() { return this.regForm.controls; }
 
   addUser() {
-    console.log('inside component constructor');
-    const data = {
-      name: this.userDetails.name,
-      age: this.userDetails.age
-    };
-    this.restApi.createUser(data).subscribe(
-        response => {
-          console.log(response);
-          this.router.navigate(['/home']);
+    console.log('inside component constructor' + Users.name);
+
+    this.userService.createUser(this.regForm.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate(['/'], { queryParams: { registered: true } });
         },
         error => {
-          console.log(error);
+          this.error = error;
+
         });
+
   }
 }

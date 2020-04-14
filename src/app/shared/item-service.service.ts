@@ -3,12 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Users } from '../shared/users';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { Items } from '../models/items.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class RestApiService {
+export class UserServiceService {
 
   // Define API
   apiURL = 'http://localhost:3000';
@@ -27,7 +29,7 @@ export class RestApiService {
   };
 
   // HttpClient API get() method => Fetch employees list
-  getAllUsers(): Observable<Users> {
+  getAllItems(): Observable<Users> {
     return this.http.get<Users>(this.apiURL + '/users')
     .pipe(
       retry(1),
@@ -36,7 +38,7 @@ export class RestApiService {
   }
 
   // HttpClient API get() method => Fetch employee
-  getUser(id): Observable<Users> {
+  getItem(id): Observable<Users> {
     return this.http.get<Users>(this.apiURL + '/users/' + id)
     .pipe(
       retry(1),
@@ -45,8 +47,8 @@ export class RestApiService {
   }
 
   // HttpClient API post() method => Create employee
-  createUser(user): Observable<Users> {
-    return this.http.post<Users>(this.apiURL + '/users', JSON.stringify(user), this.httpOptions)
+  createItems(): Observable<Items> {
+    return this.http.post<Items>(this.apiURL + '/users', this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)

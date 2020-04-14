@@ -15,6 +15,8 @@ import { LeftcontentComponent } from './leftcontent/leftcontent.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { PostsComponent } from './posts/posts.component';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -31,13 +33,15 @@ import { PostsComponent } from './posts/posts.component';
     LoginComponent,
     AboutComponent,
     PostsComponent,
+   
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
