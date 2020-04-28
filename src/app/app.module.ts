@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { PostsComponent } from './posts/posts.component';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { UsersdailogComponent } from './usersdailog/usersdailog.component';
 
 
 
@@ -33,6 +34,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     AboutComponent,
     PostsComponent,
+    UsersdailogComponent,
    
 
   ],

@@ -28,20 +28,20 @@
 
 			</div><div class="custom-control custom-radio custom-control-inline">
 				<input type="radio" class="custom-control-input " id="indi" name="individual" checked>
-				<label class="custom-control-label mr-5 " for="users">Individual</label>
+				<label class="custom-control-label mr-5 " formControlName="role" for="users">Individual</label>
 			</div>
 
 			<!-- Default inline 2-->
 			<div class="custom-control custom-radio custom-control-inline">
 				<input type="radio" class="custom-control-input" id="org" name="org" >
-				<label class="custom-control-label mb-3 " for="organisation">Organisation</label>
+				<label class="custom-control-label mb-3 " formControlName="role" for="organisation">Organisation</label>
 			</div>
 
 
 			<div class="form-group">
 				<label for="input"> Address: </label>
 				<textarea type="text" id="address" class="form-control inputxlg w-75" rows="5"
-					placeholder="Enter Your Address " ng-model="users.address">
+					placeholder="Enter Your Address " formControlName="address" ng-model="users.address">
 					</textarea>
 			</div>
 

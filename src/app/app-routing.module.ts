@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { PostsComponent } from './posts/posts.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UsersdailogComponent } from './usersdailog/usersdailog.component';
 
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'posts', component: PostsComponent},
   {path: 'home', component: NavbarComponent},
+  {path: 'users', component: UsersdailogComponent},
 
 
 

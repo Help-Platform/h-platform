@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from '../shared/user-service.service';
+import { Users } from '../shared/Users';
 
 @Component({
   selector: 'app-leftcontent',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeftcontentComponent implements OnInit {
 
-  constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

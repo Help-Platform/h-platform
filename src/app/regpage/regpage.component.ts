@@ -27,15 +27,17 @@ export class RegpageComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required]],
       contact: ['', Validators.required, Validators.minLength(10)],
-      password: ['', [Validators.required]]
-
+      password: ['', [Validators.required]],
+      address: ['', ],
+      role: ['', [Validators.required]],
+      status: ['Pending']
     });
   }
   // convenience getter for easy access to form fields
   get f() { return this.regForm.controls; }
 
   addUser() {
-    console.log('inside component constructor' + Users.name);
+    console.log('inside component constructor' + this.regForm.value);
 
     this.userService.createUser(this.regForm.value)
       .pipe(first())

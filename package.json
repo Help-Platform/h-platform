@@ -26,6 +26,7 @@
     "rxjs": "~6.5.4",
     "sidebar": "^1.0.2",
     "tslib": "^1.10.0",
+    "typescript-logging": "^0.6.4",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

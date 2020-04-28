@@ -1,0 +1,24 @@
+<div class=" modal-dialog shadow-sm dailog-position">
+	<div class="modal-content ">
+		<div class="modal-header" style="background-color: black;-webkit-text-fill-color: aliceblue;">USERS DATA</div>
+
+		<hr>
+		<table id="users">
+			<tr>
+				<th *ngFor="let col of headers">
+					{{col}}
+				</th>
+			</tr>
+			<tr *ngFor="let row of users">
+				<td *ngFor="let col of headers">
+					{{row[col]}}
+
+				</td>
+			</tr>
+
+
+		</table>
+
+
+	</div>
+</div>

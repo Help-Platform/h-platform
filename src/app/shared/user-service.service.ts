@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Users } from '../shared/users';
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { Observable, throwError, of } from 'rxjs';
+import { retry, catchError, tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -10,6 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 
 export class UserServiceService {
+  [x: string]: any;
 
   // Define API
   apiURL = 'http://localhost:3000';
@@ -28,11 +29,12 @@ export class UserServiceService {
   };
 
   // HttpClient API get() method => Fetch employees list
-  getAllUsers(): Observable<Users> {
-    return this.http.get<Users>(this.apiURL + '/users')
+  getAllUsers(): Observable<Users[]> {
+    return this.http.get<Users[]>(this.apiURL + '/users')
     .pipe(
       retry(1),
-      catchError(this.handleError)
+      tap (_ => console.log('fetched Users')),
+      catchError(this.handleError<Users[]>('getAllUsers', [] ))
     );
   }
 
@@ -72,17 +74,23 @@ export class UserServiceService {
     );
   }
 
-  // Error handling
-  handleError(error) {
-     let errorMessage = '';
-     if (error.error instanceof ErrorEvent) {
-       // Get client-side error
-       errorMessage = error.error.message;
-     } else {
-       // Get server-side error
-       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-     }
-     window.alert(errorMessage);
-     return throwError(errorMessage);
-  }
+/**
+ * Handle Http operation that failed.
+ * Let the app continue.
+ * @param operation - name of the operation that failed
+ * @param result - optional value to return as the observable result
+ */
+private handleError<T>(operation = 'operation', result?: T) {
+  return (error: any): Observable<T> => {
+
+    // TODO: send the error to remote logging infrastructure
+    console.error(error); // log to console instead
+
+    // TODO: better job of transforming error for user consumption
+    this.log(`${operation} failed: ${error.message}`);
+
+    // Let the app keep running by returning an empty result.
+    return of(result as T);
+  };
+}
 }
